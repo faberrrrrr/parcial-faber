@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void ingresar() {
 
-        String usuario = edtUsuario.getText().toString();
+        String usuario = edtUsuario.getText().toString().trim();
         String contrasena = edtContrasena.getText().toString();
 
         if (usuario.isEmpty() || contrasena.isEmpty()) {
@@ -47,10 +47,12 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            if (usuario.equals("uac123") && contrasena.equals("12345678")) {
+            if (usuario.equalsIgnoreCase("faber") && contrasena.equals("12345678")) {
 
                 Intent intent = new Intent(MainActivity.this, SegundaActivity.class);
+                intent.putExtra("usuario", usuario);
                 startActivity(intent);
+                finish();
 
             } else {
 
